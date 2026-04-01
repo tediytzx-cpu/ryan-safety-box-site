@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ryan Safety Box Malaysia</title>
+  <meta name="description" content="Professional safes for home, office and commercial use across West Malaysia. Delivery, consultation and factory appointment in Klang Kapar." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root,[data-theme="light"]{
+      --text-xs:clamp(.75rem,.7rem + .25vw,.875rem);
+      --text-sm:clamp(.875rem,.8rem + .35vw,1rem);
+      --text-base:clamp(1rem,.95rem + .25vw,1.125rem);
+      --text-lg:clamp(1.125rem,1rem + .75vw,1.5rem);
+      --text-xl:clamp(1.5rem,1.2rem + 1.25vw,2.25rem);
+      --text-2xl:clamp(2rem,1.2rem + 2.5vw,3.5rem);
+      --space-1:.25rem;--space-2:.5rem;--space-3:.75rem;--space-4:1rem;--space-5:1.25rem;--space-6:1.5rem;--space-8:2rem;--space-10:2.5rem;--space-12:3rem;--space-16:4rem;--space-20:5rem;
+      --color-bg:#f4f3ef;--color-surface:#fbfaf7;--color-surface-2:#f0eee9;--color-surface-offset:#e6e1d8;--color-border:#d4cec4;--color-divider:#ddd8cf;
+      --color-text:#1f2328;--color-text-muted:#636a72;--color-text-faint:#8c939c;--color-text-inverse:#f7f8fa;
+      --color-primary:#123b4a;--color-primary-hover:#0d2c37;--color-primary-highlight:#d4e0e5;--color-accent:#83663a;
+      --radius-sm:.375rem;--radius-md:.625rem;--radius-lg:1rem;--radius-xl:1.5rem;--radius-full:999px;
+      --shadow-sm:0 2px 10px rgba(20,28,35,.06);--shadow-md:0 14px 38px rgba(20,28,35,.10);--shadow-lg:0 28px 80px rgba(20,28,35,.16);
+      --font-body:'Inter','Noto Sans SC',sans-serif;--font-display:'Inter','Noto Sans SC',sans-serif;
+      --content:1180px;
+    }
+    [data-theme="dark"]{
+      --color-bg:#141515;--color-surface:#1a1b1d;--color-surface-2:#202225;--color-surface-offset:#2a2d31;--color-border:#343941;--color-divider:#2b2f35;
+      --color-text:#e8ecef;--color-text-muted:#a9b0b8;--color-text-faint:#7f8790;--color-text-inverse:#101214;
+      --color-primary:#5e97a8;--color-primary-hover:#7badbb;--color-primary-highlight:#21343b;--color-accent:#b99b6e;
+      --shadow-sm:0 2px 10px rgba(0,0,0,.24);--shadow-md:0 14px 38px rgba(0,0,0,.35);--shadow-lg:0 28px 80px rgba(0,0,0,.45);
+    }
+    *,*:before,*:after{box-sizing:border-box}
+    html{scroll-behavior:smooth;-webkit-text-size-adjust:none;text-size-adjust:none}
+    body{margin:0;font-family:var(--font-body);font-size:var(--text-base);line-height:1.6;background:var(--color-bg);color:var(--color-text)}
+    img,svg{display:block;max-width:100%}
+    a{text-decoration:none;color:inherit}
+    button{font:inherit;cursor:pointer;border:0}
+    .skip-link{position:absolute;left:-999px;top:0}.skip-link:focus{left:var(--space-4);top:var(--space-4);background:var(--color-primary);color:var(--color-text-inverse);padding:var(--space-3) var(--space-4);border-radius:var(--radius-md);z-index:1000}
+    .container{width:min(calc(100% - 2rem),var(--content));margin-inline:auto}
+    .site-header{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--color-bg) 82%, transparent);backdrop-filter:blur(12px);border-bottom:1px solid color-mix(in srgb,var(--color-text) 10%, transparent)}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;gap:var(--space-4);padding:.9rem 0}
+    .brand{display:flex;align-items:center;gap:.9rem;min-width:0}
+    .brand-mark{width:52px;height:52px;padding:8px;border-radius:14px;background:linear-gradient(160deg,var(--color-primary),color-mix(in srgb,var(--color-primary) 78%, #000 22%));color:#fff;box-shadow:var(--shadow-sm)}
+    .brand-copy{min-width:0}.brand-copy strong{display:block;font-size:1rem;letter-spacing:.01em}.brand-copy span{display:block;color:var(--color-text-muted);font-size:var(--text-xs)}
+    .header-actions{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;justify-content:flex-end}
+    .lang-switch{display:flex;align-items:center;border:1px solid var(--color-border);background:var(--color-surface);border-radius:var(--radius-full);padding:.22rem}
+    .lang-switch button,.theme-btn{background:transparent;color:var(--color-text);padding:.55rem .8rem;border-radius:var(--radius-full);min-height:44px}
+    .lang-switch button.active{background:var(--color-primary);color:var(--color-text-inverse)}
+    .theme-btn{border:1px solid var(--color-border);background:var(--color-surface);width:44px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:48px;padding:.9rem 1.2rem;border-radius:var(--radius-full);font-weight:700;transition:.2s ease;background:var(--color-primary);color:var(--color-text-inverse)}
+    .btn:hover{background:var(--color-primary-hover)}
+    .btn.secondary{background:transparent;color:var(--color-text);border:1px solid var(--color-border)}
+    .hero{padding:clamp(3rem,8vw,6.5rem) 0 var(--space-16)}
+    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:var(--space-10);align-items:stretch}
+    .eyebrow{display:inline-flex;align-items:center;gap:.6rem;padding:.45rem .8rem;border-radius:var(--radius-full);background:var(--color-primary-highlight);color:var(--color-primary);font-weight:700;font-size:var(--text-sm)}
+    h1,h2,h3{font-family:var(--font-display);line-height:1.1;margin:0}
+    h1{font-size:var(--text-2xl);letter-spacing:-.03em;max-width:12ch;margin:1rem 0 1rem}
+    h2{font-size:var(--text-xl);letter-spacing:-.02em;margin-bottom:1rem}
+    h3{font-size:1.1rem;margin-bottom:.55rem}
+    .hero p,.section-intro{max-width:62ch;color:var(--color-text-muted)}
+    .hero-card,.card,.contact-panel,.cta-panel{background:var(--color-surface);border:1px solid color-mix(in srgb,var(--color-text) 10%, transparent);border-radius:var(--radius-xl);box-shadow:var(--shadow-md)}
+    .hero-card{padding:var(--space-8);display:grid;gap:var(--space-6);position:relative;overflow:hidden}
+    .hero-card:before{content:"";position:absolute;inset:auto -10% -30% auto;width:240px;height:240px;background:radial-gradient(circle,color-mix(in srgb,var(--color-primary) 18%, transparent),transparent 70%);pointer-events:none}
+    .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-4)}
+    .metric{padding:var(--space-4);border-radius:var(--radius-lg);background:var(--color-surface-2);border:1px solid color-mix(in srgb,var(--color-text) 8%, transparent)}
+    .metric strong{display:block;font-size:1.5rem}.metric span{font-size:var(--text-sm);color:var(--color-text-muted)}
+    .shield{display:grid;place-items:center;min-height:100%;padding:var(--space-8);background:linear-gradient(180deg,color-mix(in srgb,var(--color-primary) 10%, var(--color-surface)),var(--color-surface));border-radius:var(--radius-xl);border:1px solid color-mix(in srgb,var(--color-primary) 15%, transparent)}
+    .shield svg{width:min(100%,350px);height:auto;color:var(--color-primary)}
+    section{padding:clamp(3rem,6vw,5.5rem) 0}
+    .section-head{display:flex;justify-content:space-between;gap:var(--space-6);align-items:end;margin-bottom:var(--space-8)}
+    .grid-3,.grid-4,.product-grid,.brand-grid,.contact-grid{display:grid;gap:var(--space-5)}
+    .grid-4{grid-template-columns:repeat(4,1fr)} .grid-3{grid-template-columns:repeat(3,1fr)} .product-grid{grid-template-columns:repeat(3,1fr)} .brand-grid{grid-template-columns:repeat(4,1fr)} .contact-grid{grid-template-columns:1.1fr .9fr}
+    .card,.contact-panel,.cta-panel{padding:var(--space-6)}
+    .card p,.contact-panel p,.cta-panel p{color:var(--color-text-muted);margin:0}
+    .icon-badge{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:var(--color-primary-highlight);color:var(--color-primary);margin-bottom:var(--space-4)}
+    .product-card{display:flex;flex-direction:column;gap:var(--space-4)}
+    .pill{display:inline-flex;width:max-content;padding:.35rem .7rem;border-radius:var(--radius-full);background:var(--color-surface-2);font-size:var(--text-xs);font-weight:700;color:var(--color-text-muted);letter-spacing:.03em;text-transform:uppercase}
+    .product-card ul{padding-left:1.1rem;margin:.2rem 0 0;color:var(--color-text-muted)}
+    .brand-tag{font-weight:800;font-size:1.05rem}
+    .appointment{display:grid;gap:var(--space-3);padding:var(--space-5);background:var(--color-surface-2);border-radius:var(--radius-lg);border:1px solid color-mix(in srgb,var(--color-text) 8%, transparent)}
+    .faq-item{padding:var(--space-5) 0;border-bottom:1px solid var(--color-divider)}
+    .faq-item:last-child{border-bottom:0}
+    .faq-q{font-weight:700;margin-bottom:.45rem}
+    .cta-panel{display:flex;align-items:center;justify-content:space-between;gap:var(--space-6);background:linear-gradient(135deg,color-mix(in srgb,var(--color-primary) 8%, var(--color-surface)),var(--color-surface))}
+    footer{padding:var(--space-8) 0 var(--space-10);border-top:1px solid color-mix(in srgb,var(--color-text) 10%, transparent)}
+    .footer-inner{display:flex;justify-content:space-between;gap:var(--space-4);flex-wrap:wrap;color:var(--color-text-muted);font-size:var(--text-sm)}
+    .floating-wa{position:fixed;right:1rem;bottom:1rem;z-index:60}
+    .floating-wa a{display:inline-flex;align-items:center;gap:.65rem;background:#1e8e5a;color:#fff;padding:.9rem 1.1rem;border-radius:999px;box-shadow:var(--shadow-lg);font-weight:800;min-height:52px}
+    .mini{font-size:var(--text-sm);color:var(--color-text-muted)}
+    [data-animate]{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease}
+    [data-animate].in{opacity:1;transform:none}
+    @media (max-width: 980px){
+      .hero-grid,.contact-grid,.grid-4,.grid-3,.product-grid,.brand-grid,.cta-panel{grid-template-columns:1fr}
+      .cta-panel{display:grid}
+      .section-head,.header-inner{align-items:flex-start}
+      .metrics{grid-template-columns:1fr}
+      h1{max-width:14ch}
+    }
+    @media (max-width: 680px){
+      .header-inner,.header-actions{flex-direction:column;align-items:stretch}
+      .header-actions{width:100%}
+      .lang-switch{justify-content:center}
+      .theme-btn,.btn,.lang-switch button{width:100%}
+      .floating-wa a span{display:none}
+      .site-header{position:static}
+    }
+    @media (prefers-reduced-motion: reduce){*{scroll-behavior:auto!important;transition:none!important}}
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand" aria-label="Ryan Safety Box Malaysia">
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="10" width="44" height="44" rx="10" stroke="currentColor" stroke-width="4"/>
+            <rect x="20" y="20" width="24" height="24" rx="5" stroke="currentColor" stroke-width="4"/>
+            <circle cx="32" cy="32" r="4" fill="currentColor"/>
+            <path d="M32 24v16M24 32h16" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="brand-copy">
+          <strong>Ryan Safety Box Malaysia</strong>
+          <span data-i18n="brand_tagline">Professional safes for home, office & business</span>
+        </div>
+      </div>
+      <div class="header-actions">
+        <nav class="lang-switch" aria-label="Language selector">
+          <button type="button" data-lang="en" class="active">EN</button>
+          <button type="button" data-lang="zh">中</button>
+          <button type="button" data-lang="ms">BM</button>
+        </nav>
+        <button class="theme-btn" type="button" data-theme-toggle aria-label="Switch theme">◐</button>
+        <a class="btn" id="wa-header" target="_blank" rel="noopener noreferrer" href="https://wa.me/60169416393?text=Hi%2C%20I%20would%20like%20to%20ask%20about%20your%20safes.">WhatsApp</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div data-animate>
+          <span class="eyebrow" data-i18n="eyebrow">Trusted safe solutions across West Malaysia</span>
+          <h1 data-i18n="hero_title">Professional safes for homes, offices and commercial use.</h1>
+          <p data-i18n="hero_desc">From compact home safes to heavy-duty commercial models, we help customers choose the right safe with practical advice, delivery arrangement and direct WhatsApp consultation.</p>
+          <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.5rem">
+            <a class="btn" href="#products" data-i18n="cta_view">Explore product range</a>
+            <a class="btn secondary" id="wa-hero" target="_blank" rel="noopener noreferrer" href="https://wa.me/60169416393?text=Hi%2C%20I%20want%20a%20recommendation%20for%20a%20safe."><span data-i18n="cta_whatsapp">WhatsApp for recommendation</span></a>
+          </div>
+          <div class="metrics" style="margin-top:2rem">
+            <div class="metric"><strong data-i18n="metric1_num">Home to commercial</strong><span data-i18n="metric1_label">Suitable models for different needs</span></div>
+            <div class="metric"><strong data-i18n="metric2_num">West Malaysia</strong><span data-i18n="metric2_label">Delivery available across Peninsular Malaysia</span></div>
+            <div class="metric"><strong data-i18n="metric3_num">Klang Kapar</strong><span data-i18n="metric3_label">Factory visit by appointment</span></div>
+          </div>
+        </div>
+        <div class="hero-card" data-animate>
+          <div class="shield" aria-hidden="true">
+            <svg viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg">
+              <path d="M180 24 290 62v82c0 83-49 147-110 191C119 291 70 227 70 144V62l110-38Z" fill="currentColor" opacity=".08"/>
+              <path d="M180 24 290 62v82c0 83-49 147-110 191C119 291 70 227 70 144V62l110-38Z" stroke="currentColor" stroke-width="10"/>
+              <rect x="122" y="110" width="116" height="116" rx="20" stroke="currentColor" stroke-width="10"/>
+              <circle cx="180" cy="168" r="20" stroke="currentColor" stroke-width="10"/>
+              <path d="M180 148v40M160 168h40" stroke="currentColor" stroke-width="10" stroke-linecap="round"/>
+              <path d="M102 272h156" stroke="currentColor" stroke-width="10" stroke-linecap="round" opacity=".55"/>
+            </svg>
+          </div>
+          <div>
+            <div class="pill" data-i18n="panel_pill">Professional consultation</div>
+            <h2 style="margin-top:1rem" data-i18n="panel_title">Clear product presentation. Serious business image. Fast path to WhatsApp closing.</h2>
+            <p data-i18n="panel_desc">This website is built to help customers understand categories quickly, build trust in your brand, and contact you directly for quotation or recommendation.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-head" data-animate>
+          <div>
+            <h2 data-i18n="services_title">Why customers contact you with confidence</h2>
+            <p class="section-intro" data-i18n="services_desc">Position the business as a dependable specialist instead of just another social media seller.</p>
+          </div>
+        </div>
+        <div class="grid-4">
+          <article class="card" data-animate><div class="icon-badge">01</div><h3 data-i18n="s1_t">Multi-brand specialist</h3><p data-i18n="s1_d">Offer several safe brands and help customers compare based on use, size and security level.</p></article>
+          <article class="card" data-animate><div class="icon-badge">02</div><h3 data-i18n="s2_t">Home to business range</h3><p data-i18n="s2_d">Support compact home safes, office models and larger commercial requirements on one platform.</p></article>
+          <article class="card" data-animate><div class="icon-badge">03</div><h3 data-i18n="s3_t">Delivery across West Malaysia</h3><p data-i18n="s3_d">Customers from across Peninsular Malaysia can enquire and arrange doorstep delivery.</p></article>
+          <article class="card" data-animate><div class="icon-badge">04</div><h3 data-i18n="s4_t">Appointment at Klang Kapar factory</h3><p data-i18n="s4_d">Serious buyers may schedule a date and time to visit the factory in Klang Kapar, Malaysia.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="products">
+      <div class="container">
+        <div class="section-head" data-animate>
+          <div>
+            <h2 data-i18n="products_title">Product categories</h2>
+            <p class="section-intro" data-i18n="products_desc">Use these groups to present the range now, then replace each block with actual catalog models later.</p>
+          </div>
+        </div>
+        <div class="product-grid">
+          <article class="card product-card" data-animate>
+            <div class="pill" data-i18n="p1_pill">Home safe</div><h3 data-i18n="p1_t">Compact home safes</h3><p data-i18n="p1_d">Suitable for documents, cash, passports, watches and jewellery in apartments or landed homes.</p><ul><li data-i18n="p1_l1">Small to medium sizes</li><li data-i18n="p1_l2">Easy home placement</li><li data-i18n="p1_l3">Good for daily valuables</li></ul><a class="btn secondary wa-product" target="_blank" rel="noopener noreferrer" href="#" data-msg-en="Hi, I want to ask about compact home safes." data-msg-zh="你好，我想了解家用小型保险箱。" data-msg-ms="Hai, saya ingin bertanya tentang peti keselamatan rumah bersaiz kecil."><span data-i18n="ask_model">Ask on WhatsApp</span></a>
+          </article>
+          <article class="card product-card" data-animate>
+            <div class="pill" data-i18n="p2_pill">Fire resistant</div><h3 data-i18n="p2_t">Fire-resistant safes</h3><p data-i18n="p2_d">Recommended for customers who prioritise document protection and extra peace of mind.</p><ul><li data-i18n="p2_l1">Document storage</li><li data-i18n="p2_l2">Office and home use</li><li data-i18n="p2_l3">Extra protection category</li></ul><a class="btn secondary wa-product" target="_blank" rel="noopener noreferrer" href="#" data-msg-en="Hi, I want to ask about fire-resistant safes." data-msg-zh="你好，我想了解防火保险箱。" data-msg-ms="Hai, saya ingin bertanya tentang peti keselamatan tahan api."><span data-i18n="ask_model">Ask on WhatsApp</span></a>
+          </article>
+          <article class="card product-card" data-animate>
+            <div class="pill" data-i18n="p3_pill">Office use</div><h3 data-i18n="p3_t">Office and shop safes</h3><p data-i18n="p3_d">Designed for offices, retail counters and businesses that need practical daily access.</p><ul><li data-i18n="p3_l1">Better capacity</li><li data-i18n="p3_l2">Professional use case</li><li data-i18n="p3_l3">Daily business storage</li></ul><a class="btn secondary wa-product" target="_blank" rel="noopener noreferrer" href="#" data-msg-en="Hi, I want to ask about office and shop safes." data-msg-zh="你好，我想了解办公室或店面保险箱。" data-msg-ms="Hai, saya ingin bertanya tentang peti keselamatan pejabat atau kedai."><span data-i18n="ask_model">Ask on WhatsApp</span></a>
+          </article>
+          <article class="card product-card" data-animate>
+            <div class="pill" data-i18n="p4_pill">Heavy duty</div><h3 data-i18n="p4_t">Heavy-duty commercial safes</h3><p data-i18n="p4_d">For larger storage needs, stronger body construction and more demanding commercial environments.</p><ul><li data-i18n="p4_l1">Higher capacity</li><li data-i18n="p4_l2">Suitable for business premises</li><li data-i18n="p4_l3">Serious storage requirements</li></ul><a class="btn secondary wa-product" target="_blank" rel="noopener noreferrer" href="#" data-msg-en="Hi, I want to ask about heavy-duty commercial safes." data-msg-zh="你好，我想了解商用重型保险箱。" data-msg-ms="Hai, saya ingin bertanya tentang peti keselamatan komersial tugas berat."><span data-i18n="ask_model">Ask on WhatsApp</span></a>
+          </article>
+          <article class="card product-card" data-animate>
+            <div class="pill" data-i18n="p5_pill">Large format</div><h3 data-i18n="p5_t">Large family and business models</h3><p data-i18n="p5_d">For customers needing more interior space without jumping straight to industrial-grade units.</p><ul><li data-i18n="p5_l1">Bigger storage volume</li><li data-i18n="p5_l2">Documents and valuables</li><li data-i18n="p5_l3">Family and business use</li></ul><a class="btn secondary wa-product" target="_blank" rel="noopener noreferrer" href="#" data-msg-en="Hi, I want to ask about large safe models." data-msg-zh="你好，我想了解较大型的保险箱型号。" data-msg-ms="Hai, saya ingin bertanya tentang model peti keselamatan yang lebih besar."><span data-i18n="ask_model">Ask on WhatsApp</span></a>
+          </article>
+          <article class="card product-card" data-animate>
+            <div class="pill" data-i18n="p6_pill">Custom advice</div><h3 data-i18n="p6_t">Need help choosing?</h3><p data-i18n="p6_d">Tell us what you want to store, available space and preferred size, and we will recommend suitable models.</p><ul><li data-i18n="p6_l1">For home or business</li><li data-i18n="p6_l2">Based on your budget</li><li data-i18n="p6_l3">Direct WhatsApp recommendation</li></ul><a class="btn" id="wa-recommend" target="_blank" rel="noopener noreferrer" href="https://wa.me/60169416393?text=Hi%2C%20please%20recommend%20a%20safe%20for%20my%20needs."><span data-i18n="cta_whatsapp">WhatsApp for recommendation</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="brands">
+      <div class="container">
+        <div class="section-head" data-animate>
+          <div>
+            <h2 data-i18n="brands_title">Brand positioning</h2>
+            <p class="section-intro" data-i18n="brands_desc">This section can list actual brands once you finalise what should appear publicly.</p>
+          </div>
+        </div>
+        <div class="brand-grid">
+          <div class="card" data-animate><div class="brand-tag" data-i18n="b1">Brand A</div><p data-i18n="b1d">Reliable entry-level and practical everyday models.</p></div>
+          <div class="card" data-animate><div class="brand-tag" data-i18n="b2">Brand B</div><p data-i18n="b2d">Popular office and business-use selections.</p></div>
+          <div class="card" data-animate><div class="brand-tag" data-i18n="b3">Brand C</div><p data-i18n="b3d">Heavier and higher-capacity commercial options.</p></div>
+          <div class="card" data-animate><div class="brand-tag" data-i18n="b4">Multiple brands</div><p data-i18n="b4d">Positioned as a specialist who helps buyers compare clearly.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="factory">
+      <div class="container contact-grid">
+        <div class="contact-panel" data-animate>
+          <h2 data-i18n="factory_title">Factory appointment and consultation</h2>
+          <p data-i18n="factory_desc">The main production base is in Klang Kapar, Malaysia. Customers who prefer to view or discuss seriously may arrange an appointment date and time in advance.</p>
+          <div class="appointment" style="margin-top:1.4rem">
+            <strong data-i18n="factory_box_t">What customers can do</strong>
+            <span class="mini" data-i18n="factory_box_1">Ask for category recommendation</span>
+            <span class="mini" data-i18n="factory_box_2">Request quotation and sizing advice</span>
+            <span class="mini" data-i18n="factory_box_3">Arrange factory visit by appointment</span>
+            <span class="mini" data-i18n="factory_box_4">Discuss delivery across West Malaysia</span>
+          </div>
+        </div>
+        <div class="contact-panel" data-animate>
+          <h2 data-i18n="contact_title">Contact</h2>
+          <p><strong data-i18n="contact_whatsapp">WhatsApp:</strong> <a target="_blank" rel="noopener noreferrer" href="https://wa.me/60169416393">+60 16-941 6393</a></p>
+          <p><strong>Facebook:</strong> <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/ryan.petibesi/">Ryan Safety Box</a></p>
+          <p><strong data-i18n="contact_area">Service area:</strong> <span data-i18n="contact_area_v">Delivery across West Malaysia</span></p>
+          <p><strong data-i18n="contact_factory">Factory base:</strong> Klang Kapar, Malaysia</p>
+          <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.2rem">
+            <a class="btn" id="wa-visit" target="_blank" rel="noopener noreferrer" href="https://wa.me/60169416393?text=Hi%2C%20I%20would%20like%20to%20arrange%20a%20factory%20appointment%20in%20Klang%20Kapar."><span data-i18n="cta_visit">Arrange appointment</span></a>
+            <a class="btn secondary" target="_blank" rel="noopener noreferrer" href="https://wa.me/c/60169416393"><span data-i18n="cta_catalog">View WhatsApp catalog</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <div class="section-head" data-animate>
+          <div>
+            <h2 data-i18n="faq_title">Common questions</h2>
+            <p class="section-intro" data-i18n="faq_desc">These answers help visitors move faster from browsing to enquiry.</p>
+          </div>
+        </div>
+        <div class="card" data-animate>
+          <div class="faq-item"><div class="faq-q" data-i18n="f1q">How do I choose the right safe?</div><p data-i18n="f1a">Tell us what you want to store, the available space and whether the safe is for home or business use. We can suggest suitable categories through WhatsApp.</p></div>
+          <div class="faq-item"><div class="faq-q" data-i18n="f2q">Do you deliver?</div><p data-i18n="f2a">Yes. Delivery can be arranged across West Malaysia depending on the model and location.</p></div>
+          <div class="faq-item"><div class="faq-q" data-i18n="f3q">Can I visit the factory?</div><p data-i18n="f3a">Yes. Visits can be arranged by appointment at the Klang Kapar facility.</p></div>
+          <div class="faq-item"><div class="faq-q" data-i18n="f4q">Can I get recommendation before buying?</div><p data-i18n="f4a">Yes. WhatsApp us your use case and we will suggest suitable options from the available range.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="cta-panel" data-animate>
+          <div>
+            <div class="pill" data-i18n="final_pill">Ready to enquire</div>
+            <h2 style="margin-top:1rem" data-i18n="final_title">Build trust on the website. Close the deal on WhatsApp.</h2>
+            <p data-i18n="final_desc">Use this landing page as the professional front door, then continue quotation, recommendation and closing through direct chat.</p>
+          </div>
+          <a class="btn" id="wa-final" target="_blank" rel="noopener noreferrer" href="https://wa.me/60169416393?text=Hi%2C%20I%20found%20your%20website%20and%20want%20to%20know%20more%20about%20your%20safes."><span data-i18n="final_cta">Chat on WhatsApp now</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>© <span id="year"></span> Ryan Safety Box Malaysia</div>
+      <div data-i18n="footer_note">Professional safe solutions for homes, offices and businesses across West Malaysia.</div>
+    </div>
+  </footer>
+
+  <div class="floating-wa">
+    <a id="wa-float" target="_blank" rel="noopener noreferrer" href="https://wa.me/60169416393?text=Hi%2C%20I%20want%20to%20ask%20about%20your%20safes.">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.52 3.48A11.8 11.8 0 0 0 12.04 0C5.5 0 .18 5.31.18 11.85c0 2.08.54 4.11 1.56 5.9L0 24l6.44-1.68a11.84 11.84 0 0 0 5.6 1.43h.01c6.54 0 11.85-5.31 11.85-11.85 0-3.16-1.23-6.13-3.38-8.42ZM12.05 21.7h-.01a9.82 9.82 0 0 1-5-1.37l-.36-.21-3.82 1 1.02-3.72-.24-.38a9.8 9.8 0 0 1-1.51-5.18c0-5.45 4.43-9.88 9.89-9.88 2.63 0 5.1 1.02 6.96 2.89a9.8 9.8 0 0 1 2.91 7c0 5.45-4.44 9.88-9.89 9.88Zm5.42-7.4c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.18.2-.35.22-.65.08-.3-.15-1.28-.47-2.43-1.5-.9-.8-1.51-1.78-1.69-2.08-.18-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.48-.5-.67-.5h-.57c-.2 0-.52.08-.8.37-.27.3-1.05 1.02-1.05 2.48 0 1.47 1.08 2.88 1.23 3.08.15.2 2.12 3.24 5.15 4.54.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.77-.72 2.02-1.43.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z"/></svg>
+      <span data-i18n="float_cta">WhatsApp</span>
+    </a>
+  </div>
+
+  <script>
+    const translations = {
+      en: {
+        brand_tagline:'Professional safes for home, office & business',eyebrow:'Trusted safe solutions across West Malaysia',hero_title:'Professional safes for homes, offices and commercial use.',hero_desc:'From compact home safes to heavy-duty commercial models, we help customers choose the right safe with practical advice, delivery arrangement and direct WhatsApp consultation.',cta_view:'Explore product range',cta_whatsapp:'WhatsApp for recommendation',metric1_num:'Home to commercial',metric1_label:'Suitable models for different needs',metric2_num:'West Malaysia',metric2_label:'Delivery available across Peninsular Malaysia',metric3_num:'Klang Kapar',metric3_label:'Factory visit by appointment',panel_pill:'Professional consultation',panel_title:'Clear product presentation. Serious business image. Fast path to WhatsApp closing.',panel_desc:'This website is built to help customers understand categories quickly, build trust in your brand, and contact you directly for quotation or recommendation.',services_title:'Why customers contact you with confidence',services_desc:'Position the business as a dependable specialist instead of just another social media seller.',s1_t:'Multi-brand specialist',s1_d:'Offer several safe brands and help customers compare based on use, size and security level.',s2_t:'Home to business range',s2_d:'Support compact home safes, office models and larger commercial requirements on one platform.',s3_t:'Delivery across West Malaysia',s3_d:'Customers from across Peninsular Malaysia can enquire and arrange doorstep delivery.',s4_t:'Appointment at Klang Kapar factory',s4_d:'Serious buyers may schedule a date and time to visit the factory in Klang Kapar, Malaysia.',products_title:'Product categories',products_desc:'Use these groups to present the range now, then replace each block with actual catalog models later.',p1_pill:'Home safe',p1_t:'Compact home safes',p1_d:'Suitable for documents, cash, passports, watches and jewellery in apartments or landed homes.',p1_l1:'Small to medium sizes',p1_l2:'Easy home placement',p1_l3:'Good for daily valuables',p2_pill:'Fire resistant',p2_t:'Fire-resistant safes',p2_d:'Recommended for customers who prioritise document protection and extra peace of mind.',p2_l1:'Document storage',p2_l2:'Office and home use',p2_l3:'Extra protection category',p3_pill:'Office use',p3_t:'Office and shop safes',p3_d:'Designed for offices, retail counters and businesses that need practical daily access.',p3_l1:'Better capacity',p3_l2:'Professional use case',p3_l3:'Daily business storage',p4_pill:'Heavy duty',p4_t:'Heavy-duty commercial safes',p4_d:'For larger storage needs, stronger body construction and more demanding commercial environments.',p4_l1:'Higher capacity',p4_l2:'Suitable for business premises',p4_l3:'Serious storage requirements',p5_pill:'Large format',p5_t:'Large family and business models',p5_d:'For customers needing more interior space without jumping straight to industrial-grade units.',p5_l1:'Bigger storage volume',p5_l2:'Documents and valuables',p5_l3:'Family and business use',p6_pill:'Custom advice',p6_t:'Need help choosing?',p6_d:'Tell us what you want to store, available space and preferred size, and we will recommend suitable models.',p6_l1:'For home or business',p6_l2:'Based on your budget',p6_l3:'Direct WhatsApp recommendation',ask_model:'Ask on WhatsApp',brands_title:'Brand positioning',brands_desc:'This section can list actual brands once you finalise what should appear publicly.',b1:'Brand A',b1d:'Reliable entry-level and practical everyday models.',b2:'Brand B',b2d:'Popular office and business-use selections.',b3:'Brand C',b3d:'Heavier and higher-capacity commercial options.',b4:'Multiple brands',b4d:'Positioned as a specialist who helps buyers compare clearly.',factory_title:'Factory appointment and consultation',factory_desc:'The main production base is in Klang Kapar, Malaysia. Customers who prefer to view or discuss seriously may arrange an appointment date and time in advance.',factory_box_t:'What customers can do',factory_box_1:'Ask for category recommendation',factory_box_2:'Request quotation and sizing advice',factory_box_3:'Arrange factory visit by appointment',factory_box_4:'Discuss delivery across West Malaysia',contact_title:'Contact',contact_whatsapp:'WhatsApp',contact_area:'Service area',contact_area_v:'Delivery across West Malaysia',contact_factory:'Factory base',cta_visit:'Arrange appointment',cta_catalog:'View WhatsApp catalog',faq_title:'Common questions',faq_desc:'These answers help visitors move faster from browsing to enquiry.',f1q:'How do I choose the right safe?',f1a:'Tell us what you want to store, the available space and whether the safe is for home or business use. We can suggest suitable categories through WhatsApp.',f2q:'Do you deliver?',f2a:'Yes. Delivery can be arranged across West Malaysia depending on the model and location.',f3q:'Can I visit the factory?',f3a:'Yes. Visits can be arranged by appointment at the Klang Kapar facility.',f4q:'Can I get recommendation before buying?',f4a:'Yes. WhatsApp us your use case and we will suggest suitable options from the available range.',final_pill:'Ready to enquire',final_title:'Build trust on the website. Close the deal on WhatsApp.',final_desc:'Use this landing page as the professional front door, then continue quotation, recommendation and closing through direct chat.',final_cta:'Chat on WhatsApp now',footer_note:'Professional safe solutions for homes, offices and businesses across West Malaysia.',float_cta:'WhatsApp'
+      },
+      zh: {
+        brand_tagline:'家用、办公室与商业保险箱专业方案',eyebrow:'全西马可安排送货上门',hero_title:'专业保险箱方案，适合家用、办公室与商业用途。',hero_desc:'从小型家用保险箱到重型商用型号，我们帮助客户更快选到合适产品，并通过 WhatsApp 直接咨询、报价与成交。',cta_view:'查看产品分类',cta_whatsapp:'WhatsApp 获取推荐',metric1_num:'家用到商用',metric1_label:'不同场景都有合适选择',metric2_num:'全西马',metric2_label:'西马地区可安排送货',metric3_num:'Klang Kapar',metric3_label:'可预约工厂见面',panel_pill:'专业咨询',panel_title:'产品展示更清楚，企业形象更专业，客户更快进入 WhatsApp 成交。',panel_desc:'这个网站的目标是让客户快速了解分类、建立信任感，并直接联系你询问价格、尺寸与适合型号。',services_title:'为什么客户会更放心联系你',services_desc:'把业务定位成专业保险箱顾问，而不只是社交媒体卖家。',s1_t:'多品牌专业卖家',s1_d:'提供多个品牌，让客户按用途、尺寸与安全需求清楚比较。',s2_t:'家用到商业全覆盖',s2_d:'同一个网站可同时展示家用、办公室与大型商业型号。',s3_t:'全西马送货',s3_d:'西马各地客户都可以先咨询，再安排送货上门。',s4_t:'Klang Kapar 工厂预约',s4_d:'有意向客户可预约日期与时间到 Klang Kapar 工厂见面。',products_title:'产品分类',products_desc:'现在先用分类展示，之后你只需要把这些区块换成实际 catalog 产品即可。',p1_pill:'家用保险箱',p1_t:'小型家用保险箱',p1_d:'适合存放文件、现金、护照、手表、饰品等日常贵重物品。',p1_l1:'小到中型尺寸',p1_l2:'适合住家摆放',p1_l3:'日常贵重物收纳',p2_pill:'防火系列',p2_t:'防火保险箱',p2_d:'适合重视文件保护与额外安心感的客户。',p2_l1:'文件保存',p2_l2:'家用与办公室适合',p2_l3:'额外保护等级',p3_pill:'办公室用途',p3_t:'办公室与店面保险箱',p3_d:'适合办公室、店面柜台及需要日常取放的商业场景。',p3_l1:'容量更实用',p3_l2:'适合专业用途',p3_l3:'日常营业收纳',p4_pill:'重型商用',p4_t:'重型商用保险箱',p4_d:'适合更大容量、更高强度及更严谨商业环境的需求。',p4_l1:'更高容量',p4_l2:'适合商业场所',p4_l3:'严肃储存需求',p5_pill:'大容量',p5_t:'大型家用与商用型号',p5_d:'适合需要更大内部空间，但又不一定需要工业级设备的客户。',p5_l1:'更大收纳空间',p5_l2:'文件与贵重物品',p5_l3:'家庭与商业都适合',p6_pill:'选型建议',p6_t:'不知道怎么选？',p6_d:'告诉我们你要存放什么、空间大小和预算，我们会推荐合适的型号。',p6_l1:'家用或商用都可',p6_l2:'按预算推荐',p6_l3:'直接 WhatsApp 建议',ask_model:'WhatsApp 询问',brands_title:'品牌定位',brands_desc:'这个区块之后可以换成你确定要公开展示的真实品牌。',b1:'品牌 A',b1d:'适合入门与日常使用的实用型号。',b2:'品牌 B',b2d:'适合办公室与商业使用的热门选择。',b3:'品牌 C',b3d:'更重型、更大容量的商用方案。',b4:'多个品牌',b4d:'强调你是帮助客户专业比较的卖家。',factory_title:'工厂预约与专业咨询',factory_desc:'主要生产工厂位于马来西亚 Klang Kapar。客户如需更认真了解产品，可先预约日期与时间到工厂会面。',factory_box_t:'客户可进行',factory_box_1:'先询问适合的分类',factory_box_2:'获取报价与尺寸建议',factory_box_3:'预约到工厂见面',factory_box_4:'了解全西马送货安排',contact_title:'联络方式',contact_whatsapp:'WhatsApp',contact_area:'服务地区',contact_area_v:'全西马可安排送货',contact_factory:'工厂地点',cta_visit:'预约见面',cta_catalog:'查看 WhatsApp catalog',faq_title:'常见问题',faq_desc:'这些内容可以帮助访客更快从浏览进入咨询。',f1q:'我要怎么选适合的保险箱？',f1a:'你只需要告诉我们要存放什么、可放置空间多大，以及是家用还是商用，我们就能先通过 WhatsApp 推荐合适方向。',f2q:'你们有送货吗？',f2a:'有。全西马地区都可以按型号与地点安排送货。',f3q:'可以到工厂看吗？',f3a:'可以，需先预约日期与时间到 Klang Kapar 工厂。',f4q:'购买前可以先获得建议吗？',f4a:'可以，把你的使用需求发到 WhatsApp，我们会建议适合的产品类型。',final_pill:'准备咨询',final_title:'先用网站建立信任，再用 WhatsApp 完成成交。',final_desc:'把这个页面当作专业门面，让客户先了解你，再直接进入聊天报价与成交流程。',final_cta:'立即 WhatsApp 聊天',footer_note:'全西马家用、办公室与商业保险箱专业方案。',float_cta:'WhatsApp'
+      },
+      ms: {
+        brand_tagline:'Penyelesaian peti keselamatan profesional untuk rumah, pejabat & perniagaan',eyebrow:'Penghantaran boleh diatur ke seluruh Semenanjung Malaysia',hero_title:'Peti keselamatan profesional untuk rumah, pejabat dan kegunaan komersial.',hero_desc:'Daripada model rumah bersaiz kecil hingga model komersial tugas berat, kami membantu pelanggan memilih peti keselamatan yang sesuai dengan nasihat praktikal, urusan penghantaran dan konsultasi terus melalui WhatsApp.',cta_view:'Lihat kategori produk',cta_whatsapp:'WhatsApp untuk cadangan',metric1_num:'Rumah ke komersial',metric1_label:'Model sesuai untuk pelbagai keperluan',metric2_num:'Semenanjung Malaysia',metric2_label:'Penghantaran tersedia ke seluruh West Malaysia',metric3_num:'Klang Kapar',metric3_label:'Lawatan kilang melalui temu janji',panel_pill:'Konsultasi profesional',panel_title:'Penerangan produk lebih jelas. Imej syarikat lebih profesional. Laluan pantas ke penutupan jualan di WhatsApp.',panel_desc:'Laman ini dibina untuk membantu pelanggan memahami kategori dengan cepat, membina kepercayaan terhadap jenama anda, dan terus menghubungi anda untuk sebut harga atau cadangan.',services_title:'Mengapa pelanggan lebih yakin untuk menghubungi anda',services_desc:'Letakkan perniagaan ini sebagai pakar peti keselamatan yang boleh dipercayai, bukan sekadar penjual media sosial biasa.',s1_t:'Pakar pelbagai jenama',s1_d:'Menawarkan beberapa jenama peti keselamatan dan membantu pelanggan membandingkan mengikut kegunaan, saiz dan tahap keselamatan.',s2_t:'Dari rumah ke perniagaan',s2_d:'Sokong model rumah kecil, kegunaan pejabat dan keperluan komersial yang lebih besar di satu platform.',s3_t:'Penghantaran seluruh West Malaysia',s3_d:'Pelanggan di seluruh Semenanjung boleh bertanya dan mengatur penghantaran ke lokasi.',s4_t:'Temu janji di kilang Klang Kapar',s4_d:'Pembeli serius boleh menetapkan tarikh dan masa untuk melawat kilang di Klang Kapar, Malaysia.',products_title:'Kategori produk',products_desc:'Gunakan kategori ini untuk mempamerkan rangkaian sekarang, kemudian gantikan setiap blok dengan model sebenar daripada katalog nanti.',p1_pill:'Peti rumah',p1_t:'Peti keselamatan rumah kompak',p1_d:'Sesuai untuk dokumen, wang tunai, pasport, jam tangan dan barang kemas di rumah atau apartmen.',p1_l1:'Saiz kecil hingga sederhana',p1_l2:'Mudah diletakkan di rumah',p1_l3:'Untuk barang berharga harian',p2_pill:'Tahan api',p2_t:'Peti keselamatan tahan api',p2_d:'Disyorkan untuk pelanggan yang mengutamakan perlindungan dokumen dan ketenangan minda tambahan.',p2_l1:'Simpanan dokumen',p2_l2:'Sesuai untuk rumah dan pejabat',p2_l3:'Kategori perlindungan tambahan',p3_pill:'Kegunaan pejabat',p3_t:'Peti keselamatan pejabat dan kedai',p3_d:'Direka untuk pejabat, kaunter runcit dan perniagaan yang memerlukan akses harian yang praktikal.',p3_l1:'Kapasiti lebih baik',p3_l2:'Kegunaan profesional',p3_l3:'Simpanan operasi harian',p4_pill:'Tugas berat',p4_t:'Peti keselamatan komersial tugas berat',p4_d:'Untuk keperluan kapasiti lebih besar, binaan lebih kukuh dan persekitaran komersial yang lebih mencabar.',p4_l1:'Kapasiti lebih tinggi',p4_l2:'Sesuai untuk premis perniagaan',p4_l3:'Keperluan simpanan serius',p5_pill:'Saiz besar',p5_t:'Model besar untuk keluarga dan perniagaan',p5_d:'Untuk pelanggan yang memerlukan ruang dalaman lebih besar tanpa terus ke unit gred industri.',p5_l1:'Ruang simpanan lebih besar',p5_l2:'Dokumen dan barang berharga',p5_l3:'Sesuai untuk keluarga dan bisnes',p6_pill:'Nasihat pemilihan',p6_t:'Perlukan bantuan memilih?',p6_d:'Beritahu kami apa yang ingin disimpan, ruang yang ada dan bajet anda, dan kami akan cadangkan model yang sesuai.',p6_l1:'Untuk rumah atau bisnes',p6_l2:'Berdasarkan bajet anda',p6_l3:'Cadangan terus melalui WhatsApp',ask_model:'Tanya di WhatsApp',brands_title:'Kedudukan jenama',brands_desc:'Bahagian ini boleh menyenaraikan jenama sebenar selepas anda putuskan apa yang mahu dipaparkan secara terbuka.',b1:'Jenama A',b1d:'Model boleh harap untuk peringkat permulaan dan penggunaan harian.',b2:'Jenama B',b2d:'Pilihan popular untuk pejabat dan kegunaan perniagaan.',b3:'Jenama C',b3d:'Pilihan komersial yang lebih berat dan berkapasiti tinggi.',b4:'Pelbagai jenama',b4d:'Menunjukkan anda sebagai pakar yang membantu pembeli membandingkan dengan jelas.',factory_title:'Temu janji kilang dan konsultasi',factory_desc:'Pusat pengeluaran utama terletak di Klang Kapar, Malaysia. Pelanggan yang mahu melihat atau berbincang dengan lebih serius boleh menetapkan tarikh dan masa lawatan lebih awal.',factory_box_t:'Apa yang pelanggan boleh lakukan',factory_box_1:'Minta cadangan kategori',factory_box_2:'Minta sebut harga dan nasihat saiz',factory_box_3:'Atur lawatan kilang melalui temu janji',factory_box_4:'Bincang penghantaran ke seluruh West Malaysia',contact_title:'Hubungi',contact_whatsapp:'WhatsApp',contact_area:'Kawasan servis',contact_area_v:'Penghantaran ke seluruh West Malaysia',contact_factory:'Lokasi kilang',cta_visit:'Atur temu janji',cta_catalog:'Lihat katalog WhatsApp',faq_title:'Soalan lazim',faq_desc:'Jawapan ini membantu pelawat bergerak lebih cepat daripada melihat kepada bertanya.',f1q:'Bagaimana saya memilih peti keselamatan yang sesuai?',f1a:'Beritahu kami apa yang anda mahu simpan, ruang yang tersedia, dan sama ada untuk rumah atau perniagaan. Kami boleh cadangkan kategori yang sesuai melalui WhatsApp.',f2q:'Adakah anda menyediakan penghantaran?',f2a:'Ya. Penghantaran boleh diatur ke seluruh West Malaysia bergantung pada model dan lokasi.',f3q:'Bolehkah saya melawat kilang?',f3a:'Ya. Lawatan boleh diatur melalui temu janji di fasiliti Klang Kapar.',f4q:'Bolehkah saya dapatkan cadangan sebelum membeli?',f4a:'Ya. Hantar keperluan anda melalui WhatsApp dan kami akan cadangkan pilihan yang sesuai.',final_pill:'Sedia untuk bertanya',final_title:'Bina kepercayaan di laman web. Tutup jualan di WhatsApp.',final_desc:'Gunakan halaman ini sebagai pintu masuk profesional, kemudian teruskan sebut harga, cadangan dan penutupan jualan melalui chat langsung.',final_cta:'Chat di WhatsApp sekarang',footer_note:'Penyelesaian peti keselamatan profesional untuk rumah, pejabat dan perniagaan di seluruh West Malaysia.',float_cta:'WhatsApp'
+      }
+    };
+
+    const waMessages = {
+      en: {
+        header:'Hi, I would like to ask about your safes.',
+        recommend:'Hi, please recommend a safe for my needs.',
+        visit:'Hi, I would like to arrange a factory appointment in Klang Kapar.',
+        final:'Hi, I found your website and want to know more about your safes.'
+      },
+      zh: {
+        header:'你好，我想了解你们的保险箱产品。',
+        recommend:'你好，请帮我推荐适合我的保险箱。',
+        visit:'你好，我想预约到 Klang Kapar 工厂见面。',
+        final:'你好，我是从你们网站看到的，想进一步了解保险箱。'
+      },
+      ms: {
+        header:'Hai, saya ingin bertanya tentang peti keselamatan anda.',
+        recommend:'Hai, tolong cadangkan peti keselamatan yang sesuai untuk saya.',
+        visit:'Hai, saya ingin mengatur temu janji ke kilang di Klang Kapar.',
+        final:'Hai, saya jumpa laman web anda dan ingin tahu lebih lanjut tentang peti keselamatan anda.'
+      }
+    };
+
+    const phone='60169416393';
+    let currentLang='en';
+
+    function waLink(message){ return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`; }
+
+    function applyLang(lang){
+      currentLang = lang;
+      document.documentElement.lang = lang === 'zh' ? 'zh-CN' : lang;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        if (translations[lang] && translations[lang][key]) el.textContent = translations[lang][key];
+      });
+      document.querySelectorAll('[data-lang]').forEach(btn => btn.classList.toggle('active', btn.dataset.lang === lang));
+      document.getElementById('wa-header').href = waLink(waMessages[lang].header);
+      document.getElementById('wa-hero').href = waLink(waMessages[lang].recommend);
+      document.getElementById('wa-recommend').href = waLink(waMessages[lang].recommend);
+      document.getElementById('wa-visit').href = waLink(waMessages[lang].visit);
+      document.getElementById('wa-final').href = waLink(waMessages[lang].final);
+      document.getElementById('wa-float').href = waLink(waMessages[lang].header);
+      document.querySelectorAll('.wa-product').forEach(btn => {
+        const attr = lang === 'zh' ? 'msgZh' : lang === 'ms' ? 'msgMs' : 'msgEn';
+        btn.href = waLink(btn.dataset[attr]);
+      });
+    }
+
+    document.querySelectorAll('[data-lang]').forEach(btn => btn.addEventListener('click', ()=>applyLang(btn.dataset.lang)));
+
+    (function(){
+      const btn=document.querySelector('[data-theme-toggle]');
+      const root=document.documentElement;
+      let mode=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+      root.setAttribute('data-theme',mode);
+      btn.addEventListener('click',()=>{mode=mode==='dark'?'light':'dark';root.setAttribute('data-theme',mode);});
+    })();
+
+    const observer = new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{ if(entry.isIntersecting){ entry.target.classList.add('in'); observer.unobserve(entry.target);} });
+    },{threshold:.12});
+    document.querySelectorAll('[data-animate]').forEach(el=>observer.observe(el));
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+    applyLang('en');
+  </script>
+</body>
+</html>
